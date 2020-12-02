@@ -23,3 +23,5 @@ export function PeopleListItem({
     </Box>
   );
 }
+
+export const PeopleListItemMemo = React.memo(PeopleListItem)
