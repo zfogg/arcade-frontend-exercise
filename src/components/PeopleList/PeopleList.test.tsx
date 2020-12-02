@@ -52,6 +52,20 @@ describe('PeopleList', () => {
       expect(queryByText('FAKE_NAME_2')).not.toBeNull();
     });
 
-    it.todo('filters a list of people by teamName');
+    //it.todo('filters a list of people by teamName');
+
+    it('filters a list of people by teamName', () => {
+      const { queryByText, getByLabelText } = buildSubject(props);
+
+      fireEvent.change(getByLabelText('Search'), {
+        target: {
+          value: 'FAKE_TEAM_NAME_2'
+        }
+      });
+
+      expect(queryByText('FAKE_TEAM_NAME_1')).toBeNull();
+      expect(queryByText('FAKE_TEAM_NAME_2')).not.toBeNull();
+    });
+
   });
 });
